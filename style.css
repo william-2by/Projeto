@@ -1,0 +1,177 @@
+* {  /*zerando as margens que jávem automáticas nos elementos*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box ; /*é a medida do tamanho da caixa/ vai ser medida atravez da borda*/
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color:  rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.2);
+  --highlight-color:   rgba(255, 255, 255, 0.02);
+  --switch-bg-url: url(assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color:   rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(assets/sun.svg);
+}
+
+body {
+  /*background-image: url(./imgens/bg-mobile.jpg); o valor url é uma função responsável por encontrar em qualquer ligar do mundo onde está a imagem
+  background-repeat: no-repeat; é usado para tirar a repetição da imagem que já vem por padrão
+  background-position: top center; reposiciona a imagem
+  background-size: cover; cobre todo espaço visível
+
+  podemos também agrupar o background
+  seuquencia background: color img repeat position/size */
+  background: var(--bg-url) no-repeat top center/cover; /*propriedade chamada de short-hend ou atalho*/
+}
+
+body * {     /*seletor universal, vai usar o que estiver aqui em todos os elementos*/
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {  /*chama o atributo ID #*/
+  width: 360px; /*largura da caixa*/
+  /*height: 712px; alturada caixa*/
+  /*border: 1px solid red; borda da caixa*/
+  /* margin-right: auto; centraliza lateralmente a caixa
+  margin-left: auto; centraliza lateral mente a caixa... OBS: podem serem subbstituidas por apenas o MARGIN...*/
+  /*margin: auto; existe uma regra no CSS que não deixa a margem de cima e em baixo serem alteradas*/
+  /*margin-top: 56px; nesse caso tbm pode ser usado o padding-top de 56px. */
+  margin: 56px auto 0px;
+  padding: 0 24px; /*mudam os tamanhos das caixas, sendo 0 em cima e em baixo, 24 na esquerda e direita.*/
+}
+
+/*obs: div é um elemento block e img é um elenmento inline
+... em elemento inline eu não consigo aplicar o margin: auto*/
+/*Profile*/
+#profile {
+  text-align: center; /* a mãe das caixas abaixo, alinhamento de texto. */
+  padding: 24px; /*centraliza com essa medida os preenchiumentos em torno da caixa*/
+}
+
+#profile img {
+  width: 112px; /*não precisa definir a altura(higth) a imagem ja ajusta de acordo com a largura*/
+   /* displayé a visualização*/
+}
+
+#profile p {
+  font-weight: 500;   /*é o bold ou negrito... a grossura da letra*/
+  /*font-size: 16px;  por padrão os navegadores já tem o tamanho de 16px*/
+  line-height: 24px;  /*altura da linha*/
+  margin-top: 8px; /*margem do topo do parágrafo*/
+}
+
+/* Switch */
+
+#switch { /*já tem display block automatico*/
+  position: relative; /*vai fazer o switch button ficar relativo a ele*/
+  width: 64px;
+  margin: 4 auto;
+}
+
+#switch button {
+
+  /*estrutura do botão*/
+  width: 32px; /*largura*/
+  height: 32px; /*altura*/
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%; /*aredondamento da img*/
+  /*absolute: os positions quando forem absolutos é outra estratégia*/
+
+  /*posição*/
+  position: absolute; /*usando o absolute sobrepomos ao outro elemento, e também libera a função z-index, top e left, bottom*/
+  top: 50%;
+  right: 0;
+  z-index: 1 ; /*define o grau da sobreposição do elemento*/
+  transform: translateY(-50%); /*mexe pra cima ou pra baixo no button*/
+}
+
+#switch span {   /*por padrão o span tem o display inline*/
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /*colocamos o webkit antes do beckderop pelo fato de poder abrir normalmente em outros navegadores*/
+  border-radius: 9999px;
+
+}
+/*Links*/
+ul {
+  list-style: none; /*remove os marcadores de texto*/
+  padding: 24px 0; /*é a distancia da caixa para o item*/
+  /*flex-direction: column; deixa o modelo coluna da lista que por padrão já vem row*/
+  /*gap: 8px; é a distancia entre os elementos da li*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /*dá espaço entre os elementos(cada li)*/
+}
+
+ul li a { 
+  display: flex; /*faz com que o a ocupe todo o espaço disponível*/
+  align-items: center; /*alinha o texto mesmo no eixo central da caixa... cortando o texto no meio*/    
+
+  /*flex direction: row; não faz sentido porque já é o padrão*/
+  /*gap: 8px; também não faz sentido porque só tem um conteúdo por caixa.*/
+  justify-content: center; /*alinha o conteudo ao meio*/
+  padding: 16px 24px;
+  background: var(--surface-color);  /*rgba = red green blue e alfa, as cores vão do 0 ao 255. sendo 0 a cormais clara e o 255 a cor mais escura, e o alfa é o nível de transparencia que vai de 0.1 até 1.0  */
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /*aredondamento de borda*/ 
+  backdrop-filter: blur(4px);  /*função de embaçar quase imperceptivel*/
+  -webkit-backdrop-filter: blur(4px); /*função enbaçar*/
+
+  text-decoration: none;  /*determina o tipo de linha que vai ficar ou cortar no texto*/
+  font-weight: bold; /*grossura da fonte, acima do 500 já vira o Bold*/
+
+  transition: background 0.5s; /*apenas o fundo transiciona. já se fosse all tudo faria a transição.*/
+}
+
+ul li a:hover {  /*pseudo-selector,vai mudar quando passar com o mouse por cima*/
+  background-color:  var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+
+}
+
+/*social links*/
+#social-links {
+  display: flex; /*colocou display flex pra habilitar o gap*/
+  justify-content: center; /*alinha os icones ao meio;
+  padding: 24px 0; /*24px em cima e em baixo*/
+
+  font-size: 24px; /*tamanho da fonte*/
+
+
+}
+
+#social-links a {  /*alinhando a bolinha do hover pra ficar perfeita*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
