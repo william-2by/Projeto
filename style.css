@@ -41,13 +41,14 @@ body * {     /*seletor universal, vai usar o que estiver aqui em todos os elemen
 }
 
 #container {  /*chama o atributo ID #*/
-  width: 360px; /*largura da caixa*/
+  width: 100%; /*largura da caixa*/
   /*height: 712px; alturada caixa*/
   /*border: 1px solid red; borda da caixa*/
   /* margin-right: auto; centraliza lateralmente a caixa
   margin-left: auto; centraliza lateral mente a caixa... OBS: podem serem subbstituidas por apenas o MARGIN...*/
   /*margin: auto; existe uma regra no CSS que não deixa a margem de cima e em baixo serem alteradas*/
   /*margin-top: 56px; nesse caso tbm pode ser usado o padding-top de 56px. */
+  max-width: 588px;
   margin: 56px auto 0px;
   padding: 0 24px; /*mudam os tamanhos das caixas, sendo 0 em cima e em baixo, 24 na esquerda e direita.*/
 }
